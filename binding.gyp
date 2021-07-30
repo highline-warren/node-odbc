@@ -6,7 +6,6 @@
         'src/odbc.cpp',
         'src/odbc_connection.cpp',
         'src/odbc_statement.cpp',
-        'src/odbc_cursor.cpp',
         'src/dynodbc.cpp'
       ],
       'cflags' : ['-Wall', '-Wextra', '-Wno-unused-parameter', '-DNAPI_DISABLE_CPP_EXCEPTIONS'],
@@ -14,8 +13,7 @@
         '<!@(node -p "require(\'node-addon-api\').include")'
       ],
       'defines' : [
-        'NAPI_EXPERIMENTAL',
-        'NAPI_VERSION=<(napi_build_version)'
+        'NAPI_EXPERIMENTAL'
       ],
       'conditions' : [
         [ 'OS == "linux"', {
@@ -27,16 +25,6 @@
           ]
         }],
         [ 'OS == "mac"', {
-          'include_dirs': [
-            '/usr/local/include'
-          ],
-          'libraries' : [
-            '-L/usr/local/lib',
-            '-lodbc'
-          ],
-          'defines': [ 'NAPI_DISABLE_CPP_EXCEPTIONS', 'NAPI_EXPERIMENTAL' ]
-        }],
-        [ 'OS == "freebsd"', {
           'include_dirs': [
             '/usr/local/include'
           ],

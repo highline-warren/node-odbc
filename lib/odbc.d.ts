@@ -73,8 +73,8 @@ declare namespace odbc {
     ////////////////////////////////////////////////////////////////////////////
     //   Callbacks   ///////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
-    query<T>(sql: string, callback: (error: NodeOdbcError, result: Result<T>) => undefined): undefined;
-    query<T>(sql: string, parameters: Array<number|string>, callback: (error: NodeOdbcError, result: Result<T>) => undefined): undefined;
+    query(sql: string, callback: (error: NodeOdbcError, result: Result<unknown>) => undefined): undefined;
+    query(sql: string, parameters: Array<number|string>, callback: (error: NodeOdbcError, result: Result<unknown>) => undefined): undefined;
 
     callProcedure(catalog: string, schema: string, name: string, callback: (error: NodeOdbcError, result: Result<unknown>) => undefined): undefined;
     callProcedure(catalog: string, schema: string, name: string, parameters: Array<number|string>, callback: (error: NodeOdbcError, result: Result<unknown>) => undefined): undefined;
@@ -99,7 +99,7 @@ declare namespace odbc {
     //   Promises   ////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////
 
-    query<T>(sql: string, parameters?: Array<number|string>): Promise<Result<T>>;
+    query(sql: string, parameters?: Array<number|string>): Promise<Result<unknown>>;
 
     callProcedure(catalog: string, schema: string, name: string, parameters?: Array<number|string>): Promise<Result<unknown>>;
 

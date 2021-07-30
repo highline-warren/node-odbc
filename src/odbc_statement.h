@@ -28,7 +28,7 @@ class ODBCStatement : public Napi::ObjectWrap<ODBCStatement> {
 
     ODBCConnection               *odbcConnection;
     Napi::Reference<Napi::Array>  napiParameters;
-    StatementData                *data;
+    QueryData                    *data;
 
     SQLRETURN Free();
 
